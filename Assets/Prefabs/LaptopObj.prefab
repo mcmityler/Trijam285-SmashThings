@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 681137169553213973}
   - component: {fileID: 5333624852469407950}
   m_Layer: 0
-  m_Name: LaptopImage
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 8497389439796348541}
   - component: {fileID: 3311556236438317391}
   - component: {fileID: 3122059242298471168}
+  - component: {fileID: 2326123630787082708}
+  - component: {fileID: 1698219755806989618}
   m_Layer: 0
   m_Name: LaptopObj
   m_TagString: Untagged
@@ -198,3 +200,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2326123630787082708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5537319072757123689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f69d0bc2dce8d84e95c4f571c030e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1698219755806989618
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5537319072757123689}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2e1e78a952ff304cbc1f68064ca38e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

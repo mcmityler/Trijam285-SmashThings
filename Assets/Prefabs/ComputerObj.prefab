@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6333192498265550138}
   - component: {fileID: 4359796519178823047}
   - component: {fileID: 7230230695544702011}
+  - component: {fileID: 8748383477294760325}
+  - component: {fileID: 635174061606549417}
   m_Layer: 0
   m_Name: ComputerObj
   m_TagString: Untagged
@@ -112,6 +114,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8748383477294760325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506531272886820199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f69d0bc2dce8d84e95c4f571c030e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isBackground: 0
+--- !u!95 &635174061606549417
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506531272886820199}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2e1e78a952ff304cbc1f68064ca38e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3825980486370596831
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +159,7 @@ GameObject:
   - component: {fileID: 853991024128634862}
   - component: {fileID: 2522453397167307088}
   m_Layer: 0
-  m_Name: ComputerImage
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -32,5 +32,6 @@ public class ItemSpawnSystem : MonoBehaviour
         int m_randomItemNum = Random.Range(0, _breakableItems.Count); //random item from item list
         GameObject m_newItem = Instantiate(_breakableItems[m_randomItemNum].itemPrefab, m_randomSpawnPoint, Quaternion.identity); //spawn item in random position
         m_newItem.transform.SetParent(_spawnArea.transform); //make item a child of the spawn area.
+        m_newItem.GetComponent<ItemBreakScript>().CreateItem(_breakableItems[m_randomItemNum]);
     }
 }

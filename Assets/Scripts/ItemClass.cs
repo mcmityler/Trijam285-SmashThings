@@ -10,4 +10,5 @@ public class ItemClass
     public GameObject itemPrefab; //prefab of the item to spawn
     public int hitsToBreak = 1; //how many hits this item has to break
     public List<Sprite> itemSprites; //sprites to use to update item if it takes more than 1 hit and want to show damage somehow.
+    public int itemValue = 1; // how much this item is worth when destroying
 }
