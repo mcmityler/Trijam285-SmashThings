@@ -17,7 +17,7 @@ public class ItemSpawnSystem : MonoBehaviour
     private void FixedUpdate()
     {
         _ctr += Time.deltaTime;
-        if (_spawnTime < _ctr)
+        if (_ctr >= _spawnTime) 
         {
             _ctr = 0;
             SpawnRandomBreakableItem();
