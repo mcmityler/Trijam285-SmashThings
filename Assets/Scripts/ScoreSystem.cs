@@ -18,6 +18,8 @@ public class ScoreSystem : MonoBehaviour
     private float _minsPassed = 0f;
     private float _secondsPassed = 0;
 
+    [SerializeField] private Animator _screenflashAnimator;
+
     private bool _isPlaying = true; // if the game is being played then count the amount of clicks
 
     private void FixedUpdate()
@@ -45,9 +47,14 @@ public class ScoreSystem : MonoBehaviour
     {
         _gameScore += m_itemWorth;
         _scoreText.text = "Break Score: " + _gameScore.ToString();
+
+        if (m_itemWorth < 0) //negative item... make screen flash red
+        {
+            _screenflashAnimator.SetTrigger("ScreenFlash");
+        }
     }
 
-    public void ClickedCounter()
+    private void ClickedCounter()
     {
         _timesClicked++;
         _timesClickedText.text = "Times Clicked: " + _timesClicked.ToString();

@@ -14,6 +14,8 @@ public class ItemSpawnSystem : MonoBehaviour
     [SerializeField] private float _spawnTime = 10f;
     private float _ctr = 0f;
 
+    [SerializeField] private GameObject _explosionObj;
+
     private void FixedUpdate()
     {
         _ctr += Time.deltaTime;
@@ -32,6 +34,6 @@ public class ItemSpawnSystem : MonoBehaviour
         int m_randomItemNum = Random.Range(0, _breakableItems.Count); //random item from item list
         GameObject m_newItem = Instantiate(_breakableItems[m_randomItemNum].itemPrefab, m_randomSpawnPoint, Quaternion.identity); //spawn item in random position
         m_newItem.transform.SetParent(_spawnArea.transform); //make item a child of the spawn area.
-        m_newItem.GetComponent<ItemBreakScript>().CreateItem(_breakableItems[m_randomItemNum]);
+        m_newItem.GetComponent<ItemBreakScript>().CreateItem(_breakableItems[m_randomItemNum], _explosionObj);
     }
 }
