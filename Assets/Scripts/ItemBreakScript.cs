@@ -18,6 +18,8 @@ public class ItemBreakScript : MonoBehaviour
    private void OnMouseDown()
    {
       _itemHealth--;
+      SpawnClickParticles();
+
       if (_itemHealth <= 0)
       {
          GameObject.FindGameObjectWithTag("Manager").GetComponent<ScoreSystem>().BrokeItem(_thisItem.itemValue); //broke item so increase score..
@@ -31,6 +33,7 @@ public class ItemBreakScript : MonoBehaviour
          {
             CameraShaker.Instance.ShakeOnce(2f, 2f, 0.1f, 0.5f); 
          }
+
          
          Destroy(this.gameObject);
       }
@@ -42,5 +45,14 @@ public class ItemBreakScript : MonoBehaviour
          }
       }
       
+   }
+
+   void SpawnClickParticles()
+   {
+      ParticleSystem m_particles = Instantiate(_thisItem.clickParticles, this.gameObject.transform.position, _thisItem.clickParticles.transform.rotation); //spawn bullet destroy particles
+      ParticleSystem.MainModule m_main = m_particles.main; //change bullet destroy particles to the colour of the bullet
+      m_main.startColor = _thisItem.clickParticleColour;
+      m_particles.Play();
+      Destroy(m_particles.gameObject, 2f);
    }
 }
