@@ -18,11 +18,15 @@ public class ItemBreakScript : MonoBehaviour
    private void OnMouseDown()
    {
       _itemHealth--;
-      SpawnClickParticles();
+      GameObject.FindGameObjectWithTag("Manager").GetComponent<ItemSpawnSystem>().ItemClickParticles(_thisItem);
+
 
       if (_itemHealth <= 0)
       {
+         this.gameObject.SetActive(false); //set false before checking if there are any left, (fixes bug where it would set a spawned item inactive and then break the game loop)
+
          GameObject.FindGameObjectWithTag("Manager").GetComponent<ScoreSystem>().BrokeItem(_thisItem.itemValue); //broke item so increase score..
+         
          if (_thisItem.itemName == "Bomb") //if it is a bomb do an explosion
          {
             GameObject m_explosion = Instantiate(_explosionObj, transform.position, Quaternion.identity); //spawn explosion
@@ -32,10 +36,11 @@ public class ItemBreakScript : MonoBehaviour
          else
          {
             CameraShaker.Instance.ShakeOnce(2f, 2f, 0.1f, 0.5f); 
+            GameObject.FindGameObjectWithTag("Manager").GetComponent<ItemSpawnSystem>().BrakeableItemKilled(); //not a bomb
+
          }
 
-         
-         Destroy(this.gameObject);
+         _itemHealth = _thisItem.hitsToBreak; //reset health 
       }
       else
       {
@@ -47,12 +52,9 @@ public class ItemBreakScript : MonoBehaviour
       
    }
 
-   void SpawnClickParticles()
+
+   public string GetItemName()
    {
-      ParticleSystem m_particles = Instantiate(_thisItem.clickParticles, this.gameObject.transform.position, _thisItem.clickParticles.transform.rotation); //spawn bullet destroy particles
-      ParticleSystem.MainModule m_main = m_particles.main; //change bullet destroy particles to the colour of the bullet
-      m_main.startColor = _thisItem.clickParticleColour;
-      m_particles.Play();
-      Destroy(m_particles.gameObject, 2f);
+      return _thisItem.itemName;
    }
 }
